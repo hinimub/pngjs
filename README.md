@@ -8,13 +8,18 @@ Usage
 -----
 
 ``` js
-var PNGReader = require('png.js');
-
-var reader = new PNGReader(bytes);
+var img = UrlFetchApp.fetch('http://example.com/image.png');
+var reader = new pngjs.PNGReader(blobToUint8(img.getContent()));
 reader.parse(function(err, png){
 	if (err) throw err;
 	console.log(png);
 });
+
+function blobToUint8(blob) {
+  return blob.map(function(e){
+    return parseInt(e < 0 ? e + 256 : e);
+  });
+}
 
 ```
 
