@@ -2,8 +2,7 @@
 PNG.js
 ======
 
-PNG.js is a PNG decoder fully written in JavaScript. It works in Node.js as
-well as in (modern) browsers.
+PNG.js is a PNG decoder fully written in JavaScript. It works in Google Apps Script.
 
 Usage
 -----
@@ -70,56 +69,3 @@ fs.readFile('test.png', function(err, buffer){
 
 });
 ```
-
-Using PNGReader in the Browser
-------------------------------
-
-PNGReader accepts a byte string, array of bytes or an ArrayBuffer.
-
-For example using FileReader with file input fields:
-
-```js
-var reader = new FileReader();
-
-reader.onload = function(event){
-	var reader = new PNGReader(event.target.result);
-	reader.parse(function(err, png){
-		if (err) throw err;
-		console.log(png);
-	});
-};
-
-fileInputElement.onchange = function(){
-	reader.readAsArrayBuffer(fileInputElement.files[0]);
-	// or, but less optimal
-	reader.readAsBinaryString(fileInputElement.files[0]);
-};
-```
-
-Or instead of using input elements, XHR can also be used:
-
-```js
-var xhr = new XMLHttpRequest();
-xhr.open('GET', 'image.png', true);
-xhr.responseType = 'arraybuffer';
-
-xhr.onload = function(e){
-	if (this.status == 200){
-		var reader = new PNGReader(this.response);
-		reader.parse(function(err, png){
-			if (err) throw err;
-			console.log(png);
-		});
-	}
-};
-
-xhr.send();
-```
-
-Building Browser Version
-------------------------
-
-PNG.js uses CommonJS modules which can be used in browsers after building it
-with [browserify](http://browserify.org/):
-
-	browserify ./PNGReader.js -s PNGReader
