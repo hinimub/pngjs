@@ -57,20 +57,3 @@ png.getFilterMethod();
 png.getInterlaceMethod();
 png.getPalette();
 ```
-
-Using PNGReader in Node.js
---------------------------
-
-PNGReader accepts an `Buffer` object, returned by `fs.readFile`, for example:
-
-``` js
-fs.readFile('test.png', function(err, buffer){
-
-	var reader = new PNGReader(buffer);
-	reader.parse(function(err, png){
-		if (err) throw err;
-		console.log(png);
-	});
-
-});
-```
