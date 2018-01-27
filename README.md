@@ -4,6 +4,16 @@ PNG.js
 
 PNG.js is a PNG decoder fully written in JavaScript. It works in Google Apps Script.
 
+Setup
+-----
+
+1. Select "Resources" > "Libraries..." in the Google Apps Script
+editor.
+2. Enter the project key `1JrL6f7C-aey8sqx-5SOmCVRg9AhkjCI9ZLoGlG4QH85vFiDetMmb9vU9 ` in the "Find a Library" field, and choose "Select". 
+3. Choose a version in the dropdown box, and choose pngjs as the
+identifier. 
+4. Click the "Save" button.
+
 Usage
 -----
 
