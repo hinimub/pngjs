@@ -184,7 +184,7 @@ PNGReader.prototype.decodePixels = function(callback){
 		var chunk = this.dataChunks[i];
 		for (j = 0; j < chunk.length; j++) data[k++] = chunk[j];
 	}
-	inflate(data, function(data){
+	return inflate(data, function(data){
 		try {
 			if (png.getInterlaceMethod() === 0){
 				reader.interlaceNone(data);
@@ -195,7 +195,7 @@ PNGReader.prototype.decodePixels = function(callback){
 			return callback(e);
 		}
 
-		callback();
+		return callback();
 	});
 };
 
@@ -402,12 +402,12 @@ PNGReader.prototype.parse = function(options, callback){
 
 		var png = this.png;
 
-		this.decodePixels(function(err){
-			callback(err, png);
+		return this.decodePixels(function(err){
+			return callback(err, png);
 		});
 
 	} catch (e){
-		callback(e);
+		return callback(e);
 	}
 
 };
