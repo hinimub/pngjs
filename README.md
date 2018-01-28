@@ -20,10 +20,11 @@ Usage
 ``` js
 var img = UrlFetchApp.fetch('http://example.com/image.png');
 var reader = new pngjs.PNGReader(blobToUint8(img.getContent()));
-reader.parse(function(err, png){
+var png = reader.parse(function(err, png){
 	if (err) throw err;
-	console.log(png);
+	return png;
 });
+Logger.log(png);
 
 function blobToUint8(blob) {
   return blob.map(function(e){
@@ -40,7 +41,7 @@ reader.parse({
 	data: false
 }, function(err, png){
 	if (err) throw err;
-	console.log(png);
+	return png;
 });
 
 ```
