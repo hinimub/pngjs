@@ -2,7 +2,8 @@
 PNG.js
 ======
 
-PNG.js is a PNG decoder fully written in JavaScript. It works in Google Apps Script.
+PNG.js is a PNG decoder fully written in JavaScript. It works in Google Apps Script.  
+It depend on [zlib](https://github.com/hinimub/zlib.js).
 
 Setup
 -----
