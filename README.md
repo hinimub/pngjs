@@ -20,18 +20,12 @@ Usage
 
 ``` js
 var img = UrlFetchApp.fetch('http://example.com/image.png');
-var reader = new pngjs.PNGReader(blobToUint8(img.getContent()));
+var reader = new pngjs.PNGReader(img.getContent());
 var png = reader.parse(function(err, png){
 	if (err) throw err;
 	return png;
 });
 Logger.log(png);
-
-function blobToUint8(blob) {
-  return blob.map(function(e){
-    return parseInt(e < 0 ? e + 256 : e);
-  });
-}
 
 ```
 
