@@ -36,7 +36,7 @@ reader.parse({
 	data: false
 }, function(err, png){
 	if (err) throw err;
-	return png;
+	Logger.log(png);
 });
 
 ```
