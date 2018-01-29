@@ -39,6 +39,12 @@ function bufferToString(buffer){
 	return str;
 }
 
+function blobToUint8(blob) {
+  return blob.map(function(e){
+    return parseInt(e < 0 ? e + 256 : e);
+  });
+}
+
 var PNGReader = function(bytes){
 
 	if (typeof bytes == 'string'){
@@ -48,6 +54,7 @@ var PNGReader = function(bytes){
 			bytes[i] = bts[i].charCodeAt(0);
 		}
 	} else {
+        bytes = blobToUint8(bytes);
 		var type = toString.call(bytes).slice(8, -1);
 		if (type == 'ArrayBuffer') bytes = new Uint8Array(bytes);
 	}
