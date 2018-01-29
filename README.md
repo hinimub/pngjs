@@ -1,5 +1,5 @@
 
-PNG.js
+PNG.js for Google Apps Script
 ======
 
 PNG.js is a PNG decoder fully written in JavaScript. It works in Google Apps Script.  
